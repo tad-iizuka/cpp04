@@ -6,13 +6,15 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:34:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:38:42 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:14:42 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-void WrongAnimal::makeSound( void ) const {}
+void WrongAnimal::makeSound( void ) const {
+	std::cout << C_M << "wrong animal." << C_CLR << std::endl;
+}
 
 const std::string&	WrongAnimal::getType( void ) const {
 	return type;

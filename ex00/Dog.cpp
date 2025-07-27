@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:24:45 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:02:49 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@ void Dog::makeSound( void ) const {
 	std::cout << C_CY << "bark bark." << C_CLR << std::endl;
 }
 
-Dog::Dog( void ) : Animal("anonymous") {
-	std::cout << C_B << "Dog anonymous constructed."
+Dog::Dog( void ) : Animal("Dog") {
+	std::cout << C_B << "Dog constructed."
 		<< C_CLR << std::endl;
 }
 
-Dog::Dog( const std::string& name ) : Animal(name) {
-	std::cout << C_B << "Dog " << getType() <<  " constructed."
-		<< C_CLR << std::endl;
-}
-
-Dog::Dog( const Dog& src ) {
+Dog::Dog( const Dog& src ) : Animal(src) {
 	type = src.getType();
 	std::cout << C_B << "Dog " << src.getType() <<  " copied."
 		<< C_CLR << std::endl;
@@ -35,7 +30,7 @@ Dog::Dog( const Dog& src ) {
 Dog& Dog::operator=( const Dog& rhs ) {
 	if (this != &rhs)
 	{
-		type = rhs.getType();
+		Animal::operator=(rhs);
 		std::cout << C_B << "Dog " << rhs.getType()
 			<< " assignation operator copied." << C_CLR << std::endl;
 	}

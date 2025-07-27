@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:07 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:24:16 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:02:27 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Cat : public Animal
 		void makeSound( void ) const;
 
 		Cat( void );
-		Cat( const std::string& type );
 		Cat( const Cat& src );
 		Cat& operator=( const Cat& rhs );
 		~Cat( void );

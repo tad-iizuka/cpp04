@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:38:59 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:41:35 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:14:28 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main( void )
 		const WrongAnimal* i = new WrongCat();
 
 		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
+		i->makeSound();
 		meta->makeSound();
 		delete meta;
 		delete i;

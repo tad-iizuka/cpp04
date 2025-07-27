@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:34:27 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:37:52 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 13:07:00 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@ void WrongCat::makeSound( void ) const {
 	std::cout << C_M << "meow meow." << C_CLR << std::endl;
 }
 
-WrongCat::WrongCat( void ) : WrongAnimal("anonymous") {
-	std::cout << C_B << "WrongCat anonymous constructed."
+WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
+	std::cout << C_B << "WrongCat constructed."
 		<< C_CLR << std::endl;
 }
 
-WrongCat::WrongCat( const std::string& name ) : WrongAnimal(name) {
-	std::cout << C_B << "WrongCat " << getType() <<  " constructed."
-		<< C_CLR << std::endl;
-}
-
-WrongCat::WrongCat( const WrongCat& src ) {
+WrongCat::WrongCat( const WrongCat& src ) : WrongAnimal(src) {
 	type = src.getType();
 	std::cout << C_B << "WrongCat " << src.getType() <<  " copied."
 		<< C_CLR << std::endl;
