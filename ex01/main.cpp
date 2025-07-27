@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:38:59 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 19:07:35 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 19:55:29 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,11 @@ int main( void )
 
 	delete j;
 	delete i;
+
+	Dog a;
+	Dog aa(a);
+	Cat b;
+	Cat bb(b);
+
 	return (EXIT_SUCCESS);
 }
