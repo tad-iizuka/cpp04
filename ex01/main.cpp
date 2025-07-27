@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:38:59 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 19:55:29 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 21:38:30 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ int main( void )
 	delete j;
 	delete i;
 
-	Dog a;
-	Dog aa(a);
+	// Dog a;
+	// Dog aa(a);
 	Cat b;
+	b.brain->setIdeas(0, "abc");
+	std::cout << b.getIdeas(0) << std::endl;
 	Cat bb(b);
+	std::cout << bb.getIdeas(0) << std::endl;
 
 	return (EXIT_SUCCESS);
 }

@@ -6,11 +6,22 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 17:29:50 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 20:47:42 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 21:35:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+
+void Brain::setValue(int index, const std::string value) {
+	if (index < SIZE)
+		ideas[index] = value;
+}
+
+const std::string Brain::getValue(int index) const {
+	if (index < SIZE)
+		return ideas[index];
+	return "";
+}
 
 Brain::Brain( void ) {
 	for (int i = 0; i < SIZE; ++i) {
