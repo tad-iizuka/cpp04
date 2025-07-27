@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:32 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 06:14:41 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 07:27:23 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Dog : public Animal
 
 	private:
 
-		Brain*	brain;
+		Brain*	_brain;
 
 };
 

@@ -6,18 +6,18 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 06:15:10 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 07:28:13 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 void Dog::setIdeas(unsigned int index, std::string idea) {
-	brain->setValue(index, idea);
+	_brain->setValue(index, idea);
 }
 
 const std::string Dog::getIdeas(unsigned int index) const {
-	return brain->getValue(index);
+	return _brain->getValue(index);
 }
 
 void Dog::makeSound( void ) const {
@@ -26,10 +26,10 @@ void Dog::makeSound( void ) const {
 
 Dog::Dog( void ) : Animal("Dog") {
 	try {
-		brain = new Brain();
+		_brain = new Brain();
 	} catch (std::bad_alloc& e) {
 		std::cerr << "Error: " << e.what() << std::endl;
-		brain = NULL;
+		_brain = NULL;
 	}
 	std::cout << C_B << "Dog constructed."
 		<< C_CLR << std::endl;
@@ -37,7 +37,7 @@ Dog::Dog( void ) : Animal("Dog") {
 
 Dog::Dog( const Dog& src ) : Animal(src) {
 	type = src.getType();
-	brain = new Brain(*src.brain);
+	_brain = new Brain(*src._brain);
 	std::cout << C_B << "Dog " << src.getType() <<  " copied."
 		<< C_CLR << std::endl;
 }
@@ -46,8 +46,8 @@ Dog& Dog::operator=( const Dog& rhs ) {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
-		delete brain;
-		brain = new Brain(*rhs.brain);
+		delete _brain;
+		_brain = new Brain(*rhs._brain);
 		std::cout << C_B << "Dog " << rhs.getType()
 			<< " assignation operator copied." << C_CLR << std::endl;
 	}
@@ -55,8 +55,8 @@ Dog& Dog::operator=( const Dog& rhs ) {
 }
 
 Dog::~Dog( void ) {
-	if (brain != NULL)
-		delete brain;
+	if (_brain != NULL)
+		delete _brain;
 	std::cout << C_R << "Dog " << getType() << " destructed."
 		<< C_CLR << std::endl;
 }
