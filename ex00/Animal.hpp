@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:43:47 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:32:33 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 06:42:54 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal
 	public:
 
 		virtual void makeSound( void ) const;
-		const std::string&	getType( void ) const;
+		const std::string& getType( void ) const;
 
 		Animal( void );
 		Animal( const std::string& name );
