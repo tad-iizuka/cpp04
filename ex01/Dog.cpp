@@ -6,11 +6,19 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 20:57:38 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 06:15:10 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+
+void Dog::setIdeas(unsigned int index, std::string idea) {
+	brain->setValue(index, idea);
+}
+
+const std::string Dog::getIdeas(unsigned int index) const {
+	return brain->getValue(index);
+}
 
 void Dog::makeSound( void ) const {
 	std::cout << C_CY << "bark bark." << C_CLR << std::endl;

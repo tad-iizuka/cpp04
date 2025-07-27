@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 17:29:50 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 21:35:59 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 06:22:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 void Brain::setValue(int index, const std::string value) {
 	if (index < SIZE)
+	{
 		ideas[index] = value;
+		std::cout << C_Y << "Brain set: " << "\"" << ideas[index]
+		<< "\" at " << index << C_CLR << std::endl;
+	}
 }
 
 const std::string Brain::getValue(int index) const {
 	if (index < SIZE)
+	{
+		std::cout << C_Y << "Brain get: " << "\"" << ideas[index]
+		<< "\" at " << index << C_CLR << std::endl;
 		return ideas[index];
+	}
 	return "";
 }
 
