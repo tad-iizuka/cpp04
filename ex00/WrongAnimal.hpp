@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:34:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 04:40:16 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 07:00:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class WrongAnimal
 
 	public:
 
-		virtual void makeSound( void ) const;
+		void makeSound( void ) const;
 		const std::string&	getType( void ) const;
 
 		WrongAnimal( void );
