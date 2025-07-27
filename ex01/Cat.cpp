@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 13:02:21 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 19:00:43 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void Cat::makeSound( void ) const {
 }
 
 Cat::Cat( void ) : Animal("Cat") {
+	try {
+		brain = new Brain();
+	} catch (std::bad_alloc& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+		brain = NULL;
+	}
 	std::cout << C_B << "Cat constructed."
 		<< C_CLR << std::endl;
 }
@@ -38,6 +44,8 @@ Cat& Cat::operator=( const Cat& rhs ) {
 }
 
 Cat::~Cat( void ) {
+	if (brain != NULL)
+		delete brain;
 	std::cout << C_R << "Cat " << getType() << " destructed."
 		<< C_CLR << std::endl;
 }

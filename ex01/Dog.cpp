@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 13:02:49 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 19:07:16 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void Dog::makeSound( void ) const {
 }
 
 Dog::Dog( void ) : Animal("Dog") {
+	try {
+		brain = new Brain();
+	} catch (std::bad_alloc& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+		brain = NULL;
+	}
 	std::cout << C_B << "Dog constructed."
 		<< C_CLR << std::endl;
 }
@@ -38,6 +44,8 @@ Dog& Dog::operator=( const Dog& rhs ) {
 }
 
 Dog::~Dog( void ) {
+	if (brain != NULL)
+		delete brain;
 	std::cout << C_R << "Dog " << getType() << " destructed."
 		<< C_CLR << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:34:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 13:14:42 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 17:52:37 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ WrongAnimal::WrongAnimal( const std::string& name ) : type(name) {
 WrongAnimal::WrongAnimal( const WrongAnimal& src ) {
 	type = src.getType();
 	std::cout << C_B << "WrongAnimal " << src.getType() <<  " copied."
-		<< C_CLR << C_CLR << std::endl;
+		<< C_CLR << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=( const WrongAnimal& rhs ) {

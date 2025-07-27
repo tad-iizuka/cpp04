@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 04:07:07 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 19:06:17 by tiizuka          ###   ########.fr       */
+/*   Created: 2025/07/27 17:29:54 by tiizuka           #+#    #+#             */
+/*   Updated: 2025/07/27 18:11:47 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
+#include "Color.hpp"
 
-class Cat : public Animal
+#define	SIZE 100
+
+class Brain
 {
+
 	public:
 
-		void makeSound( void ) const;
+		Brain( void );
+		Brain( const Brain& src );
+		Brain& operator=( const Brain& rhs );
+		virtual ~Brain( void );
 
-		Cat( void );
-		Cat( const Cat& src );
-		Cat& operator=( const Cat& rhs );
-		~Cat( void );
+	protected:
 
-	private:
-
-		Brain*	brain;
+		std::string ideas[SIZE];
 
 };
 
