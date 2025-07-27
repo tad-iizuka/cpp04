@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 21:37:01 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/27 21:46:01 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void Cat::makeSound( void ) const {
 	std::cout << C_M << "meow meow." << C_CLR << std::endl;
 }
 
-// void Cat::setIdeas(unsigned int index, std::string& idea) {
-// 	brain->setValue(index, idea);
-// }
+void Cat::setIdeas(unsigned int index, std::string idea) {
+	brain->setValue(index, idea);
+}
 
-// const std::string Cat::getIdeas(unsigned int index) const {
-// 	return brain->getValue(index);
-// }
+const std::string Cat::getIdeas(unsigned int index) const {
+	return brain->getValue(index);
+}
 
 Cat::Cat( void ) : Animal("Cat") {
 	try {
