@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 11:05:21 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 14:19:13 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ Cure* Cure::clone() const {
 	return cure;
 }
 Cure::Cure( void ) {}
-Cure::Cure( const Cure& src ) {
-	(void)src;
-}
+Cure::Cure( const Cure& src ) : AMateria(src) {}
+
 Cure& Cure::operator=( const Cure& rhs ) {
 	(void)rhs;
 	return *this;

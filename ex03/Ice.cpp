@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:38 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 11:03:43 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 14:19:18 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ Ice* Ice::clone() const {
 	return ice;
 }
 Ice::Ice( void ) {}
-Ice::Ice( const Ice& src ) {
-	(void)src;
-}
+Ice::Ice( const Ice& src ) : AMateria(src) {}
+
 Ice& Ice::operator=( const Ice& rhs ) {
 	(void)rhs;
 	return *this;
