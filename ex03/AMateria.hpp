@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:59:27 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 11:01:15 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 04:14:35 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <iomanip>
 #include "Color.hpp"
 #include "ICharacter.hpp"
+
+#define NUM_SLOT 4
+#define NUM_SOURCE 4
 
 class ICharacter;
 

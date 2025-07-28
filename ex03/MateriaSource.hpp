@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:51:35 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 11:09:03 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 04:25:14 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ class MateriaSource : public IMateriaSource
 		MateriaSource( const MateriaSource& src );
 		MateriaSource& operator=( const MateriaSource& rhs );
 		~MateriaSource( void );
+
+	private:
+
+		AMateria*	_source[NUM_SOURCE];
 
 };
 
