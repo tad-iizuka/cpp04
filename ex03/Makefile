@@ -6,7 +6,7 @@
 #    By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/28 07:58:27 by tiizuka           #+#    #+#              #
-#    Updated: 2025/07/28 09:47:19 by tiizuka          ###   ########.fr        #
+#    Updated: 2025/07/28 16:20:32 by tiizuka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS 		=	main.cpp AMateria.cpp Ice.cpp Cure.cpp \
 OBJS		=	$(SRCS:.cpp=.o)
 
 # Compiler setting
-CXX			=	g++
+CXX			=	c++
 CXXFLAGSS	=	-Wall -Wextra -Werror -pedantic -g -std=c++98
 
 # Remove command
