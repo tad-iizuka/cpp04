@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:19 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 09:20:29 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 11:05:02 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 #include "AMateria.hpp"
 
-class Cure
+class AMateria;
+
+class Cure : public AMateria
 {
 	public:
 
 		void use(ICharacter& target);
-		AMateria* clone() const;
+		std::string const & getType() const;
+		Cure* clone() const;
 
 		Cure( void );
-		Cure( const std::string& name );
 		Cure( const Cure& src );
 		Cure& operator=( const Cure& rhs );
 		~Cure( void );

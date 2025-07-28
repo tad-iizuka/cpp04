@@ -6,16 +6,28 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:38 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 08:46:39 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/28 11:03:43 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-AMateria* Ice::clone() const {}
-void Ice::use(ICharacter& target) {}
+void Ice::use(ICharacter& target) {
+	(void)target;
+}
+std::string const & Ice::getType() const {
+	return _type;
+}
+Ice* Ice::clone() const {
+	Ice	*ice = new Ice;
+	return ice;
+}
 Ice::Ice( void ) {}
-Ice::Ice( const std::string& name ) {}
-Ice::Ice( const Ice& src ) {}
-Ice& Ice::operator=( const Ice& rhs ) {}
+Ice::Ice( const Ice& src ) {
+	(void)src;
+}
+Ice& Ice::operator=( const Ice& rhs ) {
+	(void)rhs;
+	return *this;
+}
 Ice::~Ice( void ) {}
