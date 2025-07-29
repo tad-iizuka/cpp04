@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 05:11:12 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 13:45:17 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,20 @@ Character::Character( const std::string& name ) : _name(name) {
 }
 
 Character::Character( const Character& src ) {
-	(void)src;
+	*this = src;
+	std::cout << C_B << "Character copied."
+		<< C_CLR << std::endl;
 }
 Character& Character::operator=( const Character& rhs ) {
-	(void)rhs;
+	if (this != &rhs)
+	{
+		*this = rhs;
+		std::cout << C_B << "Character " << rhs.getName()
+			<< " assignation operator copied." << C_CLR << std::endl;
+	}
 	return *this;
 }
-Character::~Character( void ) {}
+Character::~Character( void ) {
+	std::cout << C_R << "Character " << getName() << " destructed."
+		<< C_CLR << std::endl;
+}
