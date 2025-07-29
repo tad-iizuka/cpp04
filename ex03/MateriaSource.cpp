@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:51:00 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 13:09:02 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 15:37:27 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 		<< "]" << C_CLR << std::endl;
 	for (int i = 0; i < NUM_SOURCE; ++i)
 	{
+		std::cout << _source[i] << " " << type << std::endl;
 		if (_source[i] != NULL && _source[i]->getType() == type)
 		{
 			return _source[i]->clone();
@@ -97,16 +98,16 @@ MateriaSource& MateriaSource::operator=( const MateriaSource& rhs ) {
 }
 
 MateriaSource::~MateriaSource( void ) {
-	std::cout << C_R << "~MateriaSource destruced." << C_CLR << std::endl;
-	// for (int i = 0; i < NUM_SOURCE; ++i)
-	// {
-	// 	if (_source[i] != NULL)
-	// 	{
-	// 		delete _source[i];
-	// 		std::cout << C_M << "delete" << "_source ["<< i << "] "
-	// 			<< _source[i] << C_CLR << std::endl;
+	std::cout << C_R << "MateriaSource destruced." << C_CLR << std::endl;
+	for (int i = 0; i < NUM_SOURCE; ++i)
+	{
+		if (_source[i] != NULL)
+		{
+			delete _source[i];
+			std::cout << C_M << "delete" << "_source ["<< i << "] "
+				<< _source[i] << C_CLR << std::endl;
 
-	// 		_source[i] = NULL;
-	// 	}
-	// }
+			_source[i] = NULL;
+		}
+	}
 }

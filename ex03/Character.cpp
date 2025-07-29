@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 13:45:17 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 15:32:47 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,14 @@ Character& Character::operator=( const Character& rhs ) {
 Character::~Character( void ) {
 	std::cout << C_R << "Character " << getName() << " destructed."
 		<< C_CLR << std::endl;
+	// for (int i = 0; i < NUM_SLOT; ++i)
+	// {
+	// 	if (_inv[i] != NULL)
+	// 	{
+	// 		delete _inv[i];
+	// 		std::cout << C_M << "delete" << "_source ["<< i << "] "
+	// 			<< _inv[i] << C_CLR << std::endl;
+	// 		_inv[i] = NULL;
+	// 	}
+	// }
 }
