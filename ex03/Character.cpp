@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 22:23:46 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 22:35:56 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void Character::equip(AMateria* m) {
 			return;
 		}
 	}
-	Log::a(__FILE__, __LINE__, C_R, "Character", "equip", "[" + _name + "]", " no space to equip.");
+	Log::a(__FILE__, __LINE__, C_R, "Character", "equip", "[" + _name + "]", "no space to equip.");
 }
 void Character::unequip(int idx) {
 	Log::a(__FILE__, __LINE__, C_G, "Character", "unequip", "[" + Log::itoa(idx) + "]");
@@ -50,9 +50,9 @@ void Character::unequip(int idx) {
 				return;
 			}
 		}
-		Log::a(__FILE__, __LINE__, C_R, "Character", "unequip", "[" + Log::itoa(idx) + "]", " failed, no available backup area.");
+		Log::a(__FILE__, __LINE__, C_R, "Character", "unequip", "[" + Log::itoa(idx) + "]", "failed, no available backup area.");
 	}
-	Log::a(__FILE__, __LINE__, C_R, "Character", "unequip", "[" + Log::itoa(idx) + "]", " no available equip.");
+	Log::a(__FILE__, __LINE__, C_R, "Character", "unequip", "[" + Log::itoa(idx) + "]", "no available equip.");
 }
 void Character::use(int idx, ICharacter& target) {
 	Log::a(__FILE__, __LINE__, C_G, "Character", "use", "[" + Log::itoa(idx) + "]");
@@ -61,7 +61,7 @@ void Character::use(int idx, ICharacter& target) {
 		_inv[idx]->use(target);
 		return;
 	}
-	Log::a(__FILE__, __LINE__, C_R, "Character", "use", "[" + Log::itoa(idx) + "]", " no available equip.");
+	Log::a(__FILE__, __LINE__, C_R, "Character", "use", "[" + Log::itoa(idx) + "]", "no available equip.");
 }
 
 Character::Character( void ) : _name("none") {
