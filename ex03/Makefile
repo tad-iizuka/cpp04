@@ -6,7 +6,7 @@
 #    By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/28 07:58:27 by tiizuka           #+#    #+#              #
-#    Updated: 2025/07/28 16:20:32 by tiizuka          ###   ########.fr        #
+#    Updated: 2025/07/29 21:18:26 by tiizuka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		=	ex03
 
 # Source, object files
 SRCS 		=	main.cpp AMateria.cpp Ice.cpp Cure.cpp \
-				Character.cpp MateriaSource.cpp
+				Character.cpp MateriaSource.cpp Log.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

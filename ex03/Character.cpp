@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 18:27:10 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 21:30:26 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void Character::use(int idx, ICharacter& target) {
 Character::Character( void ) : _name("none") {
 	std::cout << C_B << "Character " << _name <<  " constructed."
 		<< C_CLR << std::endl;
-
 	for (int i = 0; i < NUM_SLOT; ++i)
 	{
 		std::cout << C_Y << "Character " << _name;
@@ -92,7 +91,7 @@ Character::Character( void ) : _name("none") {
 Character::Character( const std::string& name ) : _name(name) {
 	std::cout << C_B << "Character " << _name <<  " constructed."
 		<< C_CLR << std::endl;
-
+	Log::a(__FILE__, __LINE__, C_CY, "Character", "[" + _name + "] constructed.");
 	for (int i = 0; i < NUM_SLOT; ++i)
 	{
 		std::cout << C_Y << "Character " << _name;
