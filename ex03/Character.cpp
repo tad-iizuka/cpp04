@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 17:55:26 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 18:27:10 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void Character::equip(AMateria* m) {
 	{
 		if (_inv[i] == NULL)
 		{
+			for (int i = 0; i < NUM_SLOT; ++i)
+			{
+				if (_inv_unequip[i] == m)
+					_inv_unequip[i] = NULL;
+			}
 			_inv[i] = m;
 			std::cout << C_G << "Character " << _name
 				<< " equip " << m->getType() << " " << m << " at _inv ["
@@ -38,7 +43,25 @@ void Character::equip(AMateria* m) {
 		<< C_CLR << std::endl;
 }
 void Character::unequip(int idx) {
-	(void)idx;
+	std::cout << C_G << "unequip " << idx << C_CLR << std::endl;
+	if (idx >= 0 && idx < NUM_SLOT && _inv[idx] != NULL)
+	{
+		for (int i = 0; i < NUM_SLOT; ++i)
+		{
+			if (_inv_unequip[i] == NULL)
+			{
+				_inv_unequip[i] = _inv[idx];
+				_inv[idx] = NULL;
+				std::cout << C_G << "unequip " << idx << " completed."
+					<< C_CLR << std::endl;
+				return;
+			}
+		}
+		std::cout << C_R << "unequip " << idx << " failed, no available backup area."
+			<< C_CLR << std::endl;
+	}
+	std::cout << C_R << "unequip " << idx << " no available equip."
+		<< C_CLR << std::endl;
 }
 void Character::use(int idx, ICharacter& target) {
 	std::cout << C_G << "use " << idx <<  " to "
@@ -49,7 +72,6 @@ void Character::use(int idx, ICharacter& target) {
 		_inv[idx]->use(target);
 		return;
 	}
-
 	std::cout << C_R << "use " << idx << " no available equip."
 		<< C_CLR << std::endl;
 }
@@ -63,6 +85,7 @@ Character::Character( void ) : _name("none") {
 		std::cout << C_Y << "Character " << _name;
 		std::cout << " _inv ["<< i << "] initialized." << C_CLR << std::endl;
 		_inv[i] = NULL;
+		_inv_unequip[i] = NULL;
 	}
 }
 
@@ -75,6 +98,7 @@ Character::Character( const std::string& name ) : _name(name) {
 		std::cout << C_Y << "Character " << _name;
 		std::cout << " _inv ["<< i << "] initialized." << C_CLR << std::endl;
 		_inv[i] = NULL;
+		_inv_unequip[i] = NULL;
 	}
 }
 
@@ -100,9 +124,19 @@ Character::~Character( void ) {
 		if (_inv[i] != NULL)
 		{
 			delete _inv[i];
-			std::cout << C_M << "delete" << "_source ["<< i << "] "
+			std::cout << C_M << "delete" << "_inv ["<< i << "] "
 				<< _inv[i] << C_CLR << std::endl;
 			_inv[i] = NULL;
+		}
+	}
+	for (int i = 0; i < NUM_SLOT; ++i)
+	{
+		if (_inv_unequip[i] != NULL)
+		{
+			delete _inv_unequip[i];
+			std::cout << C_M << "delete" << "_inv_unequip ["<< i << "] "
+				<< _inv_unequip[i] << C_CLR << std::endl;
+			_inv_unequip[i] = NULL;
 		}
 	}
 }

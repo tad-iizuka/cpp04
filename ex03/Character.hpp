@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:20 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 04:14:41 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 17:57:54 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Character : public ICharacter
 
 		std::string _name;
 		AMateria*		_inv[NUM_SLOT];
+		AMateria*		_inv_unequip[NUM_SLOT];
 };
 
 #endif
