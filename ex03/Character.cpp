@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 15:32:47 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 17:34:12 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ std::string const & Character::getName() const {
 }
 void Character::equip(AMateria* m) {
 	std::cout << C_G << "Character " << _name <<  " equip "
-		<< m << C_CLR << std::endl;
-
+		<< C_CLR << std::endl;
 	if (!m)
 	{
 		std::cout << C_R << "AMateria* isn't valid." << C_CLR << std::endl;
@@ -30,7 +29,7 @@ void Character::equip(AMateria* m) {
 		{
 			_inv[i] = m;
 			std::cout << C_G << "Character " << _name
-				<< " equip " << m->getType() << " at _inv ["
+				<< " equip " << m->getType() << " " << m << " at _inv ["
 				<< i << "]" << C_CLR << std::endl;
 			return;
 		}
@@ -96,14 +95,14 @@ Character& Character::operator=( const Character& rhs ) {
 Character::~Character( void ) {
 	std::cout << C_R << "Character " << getName() << " destructed."
 		<< C_CLR << std::endl;
-	// for (int i = 0; i < NUM_SLOT; ++i)
-	// {
-	// 	if (_inv[i] != NULL)
-	// 	{
-	// 		delete _inv[i];
-	// 		std::cout << C_M << "delete" << "_source ["<< i << "] "
-	// 			<< _inv[i] << C_CLR << std::endl;
-	// 		_inv[i] = NULL;
-	// 	}
-	// }
+	for (int i = 0; i < NUM_SLOT; ++i)
+	{
+		if (_inv[i] != NULL)
+		{
+			delete _inv[i];
+			std::cout << C_M << "delete" << "_source ["<< i << "] "
+				<< _inv[i] << C_CLR << std::endl;
+			_inv[i] = NULL;
+		}
+	}
 }

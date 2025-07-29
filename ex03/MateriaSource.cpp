@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:51:00 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 15:37:27 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 17:30:54 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 		<< "]" << C_CLR << std::endl;
 	for (int i = 0; i < NUM_SOURCE; ++i)
 	{
-		std::cout << _source[i] << " " << type << std::endl;
 		if (_source[i] != NULL && _source[i]->getType() == type)
 		{
+			std::cout << C_Y << type << " " << _source[i] << C_CLR << std::endl;
 			return _source[i]->clone();
 		}
 	}
