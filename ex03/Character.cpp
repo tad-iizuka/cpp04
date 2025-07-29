@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 17:34:12 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 17:55:26 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void Character::use(int idx, ICharacter& target) {
 	std::cout << C_G << "use " << idx <<  " to "
 		<< target.getName() << C_CLR << std::endl;
 
-	if (idx < NUM_SLOT && _inv[idx] != NULL)
+	if (idx >= 0 && idx < NUM_SLOT && _inv[idx] != NULL)
 	{
 		_inv[idx]->use(target);
 		return;
