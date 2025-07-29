@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:58:36 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 18:26:06 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 22:25:50 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int main( void )
 	me->unequip(1);
 	me->unequip(10);
 	me->unequip(-1);
-	me->unequip(0);
-	me->unequip(0);
 	me->equip(tmp);
 
 	ICharacter* bob = new Character("bob");

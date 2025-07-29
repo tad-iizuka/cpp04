@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 21:30:26 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 22:23:46 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ std::string const & Character::getName() const {
 	return _name;
 }
 void Character::equip(AMateria* m) {
-	std::cout << C_G << "Character " << _name <<  " equip "
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_G, "Character", "equip", "[" + _name + "]");
 	if (!m)
 	{
-		std::cout << C_R << "AMateria* isn't valid." << C_CLR << std::endl;
+		Log::a(__FILE__, __LINE__, C_R, "Character", "equip", "AMateria* isn't valid.");
 		return;
 	}
 	for (int i = 0; i < NUM_SLOT; ++i)
@@ -33,17 +32,13 @@ void Character::equip(AMateria* m) {
 					_inv_unequip[i] = NULL;
 			}
 			_inv[i] = m;
-			std::cout << C_G << "Character " << _name
-				<< " equip " << m->getType() << " " << m << " at _inv ["
-				<< i << "]" << C_CLR << std::endl;
 			return;
 		}
 	}
-	std::cout << C_R << "Character " << _name << " no space to equip."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_R, "Character", "equip", "[" + _name + "]", " no space to equip.");
 }
 void Character::unequip(int idx) {
-	std::cout << C_G << "unequip " << idx << C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_G, "Character", "unequip", "[" + Log::itoa(idx) + "]");
 	if (idx >= 0 && idx < NUM_SLOT && _inv[idx] != NULL)
 	{
 		for (int i = 0; i < NUM_SLOT; ++i)
@@ -52,79 +47,68 @@ void Character::unequip(int idx) {
 			{
 				_inv_unequip[i] = _inv[idx];
 				_inv[idx] = NULL;
-				std::cout << C_G << "unequip " << idx << " completed."
-					<< C_CLR << std::endl;
 				return;
 			}
 		}
-		std::cout << C_R << "unequip " << idx << " failed, no available backup area."
-			<< C_CLR << std::endl;
+		Log::a(__FILE__, __LINE__, C_R, "Character", "unequip", "[" + Log::itoa(idx) + "]", " failed, no available backup area.");
 	}
-	std::cout << C_R << "unequip " << idx << " no available equip."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_R, "Character", "unequip", "[" + Log::itoa(idx) + "]", " no available equip.");
 }
 void Character::use(int idx, ICharacter& target) {
-	std::cout << C_G << "use " << idx <<  " to "
-		<< target.getName() << C_CLR << std::endl;
-
+	Log::a(__FILE__, __LINE__, C_G, "Character", "use", "[" + Log::itoa(idx) + "]");
 	if (idx >= 0 && idx < NUM_SLOT && _inv[idx] != NULL)
 	{
 		_inv[idx]->use(target);
 		return;
 	}
-	std::cout << C_R << "use " << idx << " no available equip."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_R, "Character", "use", "[" + Log::itoa(idx) + "]", " no available equip.");
 }
 
 Character::Character( void ) : _name("none") {
-	std::cout << C_B << "Character " << _name <<  " constructed."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_B, "Character", "[" + _name + "] constructed.");
 	for (int i = 0; i < NUM_SLOT; ++i)
 	{
-		std::cout << C_Y << "Character " << _name;
-		std::cout << " _inv ["<< i << "] initialized." << C_CLR << std::endl;
 		_inv[i] = NULL;
 		_inv_unequip[i] = NULL;
 	}
 }
 
 Character::Character( const std::string& name ) : _name(name) {
-	std::cout << C_B << "Character " << _name <<  " constructed."
-		<< C_CLR << std::endl;
-	Log::a(__FILE__, __LINE__, C_CY, "Character", "[" + _name + "] constructed.");
+	Log::a(__FILE__, __LINE__, C_B, "Character", "[" + _name + "] constructed.");
 	for (int i = 0; i < NUM_SLOT; ++i)
 	{
-		std::cout << C_Y << "Character " << _name;
-		std::cout << " _inv ["<< i << "] initialized." << C_CLR << std::endl;
 		_inv[i] = NULL;
 		_inv_unequip[i] = NULL;
 	}
 }
 
 Character::Character( const Character& src ) {
-	*this = src;
-	std::cout << C_B << "Character copied."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_B, "Character", "[" + src.getName() + "] copied.");
+	for (int i = 0; i < NUM_SLOT; ++i)
+	{
+		if (src._inv[i] != NULL)
+			_inv[i] = src._inv[i]->clone();
+	}
 }
 Character& Character::operator=( const Character& rhs ) {
 	if (this != &rhs)
 	{
-		*this = rhs;
-		std::cout << C_B << "Character " << rhs.getName()
-			<< " assignation operator copied." << C_CLR << std::endl;
+		for (int i = 0; i < NUM_SLOT; ++i)
+		{
+			if (rhs._inv[i] != NULL)
+				_inv[i] = rhs._inv[i]->clone();
+		}
+		Log::a(__FILE__, __LINE__, C_B, "Character", "[" + rhs.getName() + "] assignation operator copied.");
 	}
 	return *this;
 }
 Character::~Character( void ) {
-	std::cout << C_R << "Character " << getName() << " destructed."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_R, "Character", "[" + getName() + "] destructed.");
 	for (int i = 0; i < NUM_SLOT; ++i)
 	{
 		if (_inv[i] != NULL)
 		{
 			delete _inv[i];
-			std::cout << C_M << "delete" << "_inv ["<< i << "] "
-				<< _inv[i] << C_CLR << std::endl;
 			_inv[i] = NULL;
 		}
 	}
@@ -133,8 +117,6 @@ Character::~Character( void ) {
 		if (_inv_unequip[i] != NULL)
 		{
 			delete _inv_unequip[i];
-			std::cout << C_M << "delete" << "_inv_unequip ["<< i << "] "
-				<< _inv_unequip[i] << C_CLR << std::endl;
 			_inv_unequip[i] = NULL;
 		}
 	}
