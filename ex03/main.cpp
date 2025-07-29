@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:58:36 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 22:25:50 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 08:11:42 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int main( void )
 	delete me;
 	delete src;
 
-	std::cout << "return (EXIT_SUCCESS);" << std::endl;
+	Log::a(__FILE__, __LINE__, C_W, "return (EXIT_SUCCESS);");
 	return (EXIT_SUCCESS);
 }

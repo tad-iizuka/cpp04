@@ -6,19 +6,17 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:51:00 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 17:30:54 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 08:18:40 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
 void MateriaSource::learnMateria(AMateria* m) {
-	std::cout << C_G << "learnMateria " << "[" << m->getType()
-		<< "]" << C_CLR << std::endl;
-
+	Log::a(__FILE__, __LINE__, C_G, "learnMateria", "[" + m->getType() + "]");
 	if (!m)
 	{
-		std::cout << C_R << "AMateria* isn't valid." << C_CLR << std::endl;
+		Log::a(__FILE__, __LINE__, C_R, "learnMateria", "AMateria* isn't valid.");
 		return;
 	}
 	for (int i = 0; i < NUM_SOURCE; ++i)
@@ -26,61 +24,41 @@ void MateriaSource::learnMateria(AMateria* m) {
 		if (_source[i] == NULL)
 		{
 			_source[i] = m;
-			std::cout << C_G << "learnMateria " << m->getType()
-				<< " at _source ["
-				<< i << "]" << C_CLR << std::endl;
 			return;
 		}
 	}
-	std::cout << C_R << "learnMateria " << m->getType()
-		<< " no space to store."<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_R, "learnMateria", "[" + m->getType() + "]", "no space to store.");
 }
 AMateria* MateriaSource::createMateria(std::string const & type) {
-	std::cout << C_G << "createMateria " << "[" << type
-		<< "]" << C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_G, "createMateria", "[" + type + "]");
 	for (int i = 0; i < NUM_SOURCE; ++i)
 	{
 		if (_source[i] != NULL && _source[i]->getType() == type)
-		{
-			std::cout << C_Y << type << " " << _source[i] << C_CLR << std::endl;
 			return _source[i]->clone();
-		}
 	}
-	std::cout << C_R << "createMateria " << type
-		<< " no matched materia found." << C_CLR << std::endl;
-		return NULL;
+	Log::a(__FILE__, __LINE__, C_R, "createMateria", "[" + type + "]", "no matched materia found.");
+	return NULL;
 }
 
 MateriaSource::MateriaSource( void ) {
-	std::cout << C_B << "MateriaSource constructed."
-		<< C_CLR << std::endl;
-
+	Log::a(__FILE__, __LINE__, C_B, "constructed.");
 	for (int i = 0; i < NUM_SOURCE; ++i)
-	{
-		std::cout << C_Y << "MateriaSource"
-			<< " _source ["<< i << "] initialized." << C_CLR << std::endl;
 		_source[i] = NULL;
-	}
 }
 
 MateriaSource::MateriaSource( const MateriaSource& src ) {
-	std::cout << C_B << "MateriaSource copied."
-		<< C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_B, "copied.");
 	for (int i = 0; i < NUM_SOURCE; ++i)
 	{
 		if (src._source[i] != NULL)
 			_source[i] = src._source[i]->clone();
 		else
 			_source[i] = NULL;
-		std::cout << C_Y << "MateriaSource" << "_source ["<< i << "] "
-			<< _source[i] << " from " << src._source[i]
-			<< " copied." << C_CLR << std::endl;
 	}
 }
 
 MateriaSource& MateriaSource::operator=( const MateriaSource& rhs ) {
-	std::cout << C_B << "MateriaSource "
-		<< " assignation operator copied." << C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_B, "assignation operator copied.");
 	if (this != &rhs)
 	{
 		for (int i = 0; i < NUM_SOURCE; ++i)
@@ -89,24 +67,18 @@ MateriaSource& MateriaSource::operator=( const MateriaSource& rhs ) {
 				_source[i] = rhs._source[i]->clone();
 			else
 				_source[i] = NULL;
-			std::cout << C_Y << "MateriaSource" << "_source ["<< i << "] "
-				<< _source[i] << " from " << rhs._source[i]
-				<< " copied." << C_CLR << std::endl;
 		}
 	}
 	return *this;
 }
 
 MateriaSource::~MateriaSource( void ) {
-	std::cout << C_R << "MateriaSource destruced." << C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_R, "destructed.");
 	for (int i = 0; i < NUM_SOURCE; ++i)
 	{
 		if (_source[i] != NULL)
 		{
 			delete _source[i];
-			std::cout << C_M << "delete" << "_source ["<< i << "] "
-				<< _source[i] << C_CLR << std::endl;
-
 			_source[i] = NULL;
 		}
 	}
