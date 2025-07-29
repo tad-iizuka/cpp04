@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:38 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 05:05:42 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 13:27:14 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,30 @@ std::string const & Ice::getType() const {
 }
 Ice* Ice::clone() const {
 	Ice	*ice = new Ice;
+	std::cout << C_G << "Ice " << ice << " cloned."
+		<< C_CLR << std::endl;
 	return ice;
 }
-Ice::Ice( void ) : AMateria("ice") {}
-Ice::Ice( const Ice& src ) : AMateria(src) {}
+Ice::Ice( void ) : AMateria("ice") {
+	std::cout << C_B << "Ice constructed."
+		<< C_CLR << std::endl;
+}
+
+Ice::Ice( const Ice& src ) : AMateria(src) {
+	std::cout << C_B << "Ice copied."
+		<< C_CLR << std::endl;
+}
 
 Ice& Ice::operator=( const Ice& rhs ) {
-	(void)rhs;
+	if (this != &rhs)
+	{
+		AMateria::operator=(rhs);
+		std::cout << C_B << "Ice " << rhs.getType()
+			<< " assignation operator copied." << C_CLR << std::endl;
+	}
 	return *this;
 }
-Ice::~Ice( void ) {}
+Ice::~Ice( void ) {
+	std::cout << C_R << "Ice " << getType() << " destructed."
+		<< C_CLR << std::endl;
+}

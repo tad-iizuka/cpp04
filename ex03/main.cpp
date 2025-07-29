@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:58:36 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 10:55:52 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 12:57:20 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ int main( void )
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+	MateriaSource one;
+	one.learnMateria(new Ice());
+	one.learnMateria(new Cure());
+	MateriaSource two(one);
+
+	MateriaSource temp;
+	temp = one;
 
 	delete bob;
 	delete me;

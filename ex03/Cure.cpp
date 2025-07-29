@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 05:07:06 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/29 13:27:21 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,27 @@ std::string const & Cure::getType() const {
 }
 Cure* Cure::clone() const {
 	Cure	*cure = new Cure;
+	std::cout << C_G << "Cure " << cure << " cloned."
+		<< C_CLR << std::endl;
 	return cure;
 }
-Cure::Cure( void ) : AMateria("cure") {}
-Cure::Cure( const Cure& src ) : AMateria(src) {}
+Cure::Cure( void ) : AMateria("cure") {
+	std::cout << C_B << "Cure constructed."
+		<< C_CLR << std::endl;
+}
+
+Cure::Cure( const Cure& src ) : AMateria(src) {
+	std::cout << C_B << "Cure copied."
+		<< C_CLR << std::endl;
+}
 
 Cure& Cure::operator=( const Cure& rhs ) {
-	(void)rhs;
+	AMateria::operator=(rhs);
+	std::cout << C_B << "Cure " << rhs.getType()
+		<< " assignation operator copied." << C_CLR << std::endl;
 	return *this;
 }
-Cure::~Cure( void ) {}
+Cure::~Cure( void ) {
+	std::cout << C_R << "Cure " << getType() << " destructed."
+		<< C_CLR << std::endl;
+}
