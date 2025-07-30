@@ -6,14 +6,14 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 15:14:22 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:36:18 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 void Cat::makeSound( void ) const {
-	Log::a(F, L, C_Y, "makeSound", "meow meow");
+	Log::a(F, L, C_Y, "makeSound", "[" + type + "]", "meow meow");
 }
 
 void Cat::setIdeas(unsigned int index, std::string idea) {

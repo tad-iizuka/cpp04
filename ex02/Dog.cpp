@@ -6,14 +6,14 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 15:26:45 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:37:12 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 void Dog::makeSound( void ) const {
-	Log::a(F, L, C_Y, "makeSound", "bark bark");
+	Log::a(F, L, C_Y, "makeSound", "[" + type + "]", "bark bark");
 }
 
 void Dog::setIdeas(unsigned int index, std::string idea) {
