@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:58:36 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 12:05:56 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 14:38:23 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ int main( void )
 	delete bob;
 	delete me;
 	delete src;
-	Log::a(__FILE__, __LINE__, C_W, "return (EXIT_SUCCESS);");
+	Log::a(F, L, C_W, "return (EXIT_SUCCESS);");
 	return (EXIT_SUCCESS);
 }

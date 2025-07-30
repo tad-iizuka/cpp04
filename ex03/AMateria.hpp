@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:59:27 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 21:20:20 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 14:39:45 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "Color.hpp"
 #include "ICharacter.hpp"
 #include "Log.hpp"
 
