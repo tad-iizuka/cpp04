@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 17:29:54 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 21:35:54 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 15:26:13 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include "Color.hpp"
+#include "Log.hpp"
 
 #define	SIZE 100
 

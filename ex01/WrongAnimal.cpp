@@ -6,47 +6,42 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:34:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 17:52:37 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 14:55:15 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
 void WrongAnimal::makeSound( void ) const {
-	std::cout << C_M << "wrong animal." << C_CLR << std::endl;
+	Log::a(F, L, C_Y, "makeSound", "wrong animal");
 }
 
 const std::string&	WrongAnimal::getType( void ) const {
 	return type;
 }
 
-WrongAnimal::WrongAnimal( void ) : type("anonymous") {
-	std::cout << C_B << "WrongAnimal anonymous constructed."
-		<< C_CLR << std::endl;
+WrongAnimal::WrongAnimal( void ) : type("none") {
+	Log::a(F, L, C_B, "[" + type + "] constructed.");
 }
 
 WrongAnimal::WrongAnimal( const std::string& name ) : type(name) {
-	std::cout << C_B << "WrongAnimal " << getType() <<  " constructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "[" + getType() + "] constructed.");
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal& src ) {
 	type = src.getType();
-	std::cout << C_B << "WrongAnimal " << src.getType() <<  " copied."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 }
 
 WrongAnimal& WrongAnimal::operator=( const WrongAnimal& rhs ) {
 	if (this != &rhs)
 	{
 		type = rhs.getType();
-		std::cout << C_B << "WrongAnimal " << rhs.getType()
-			<< " assignation operator copied." << C_CLR << std::endl;
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
 
 WrongAnimal::~WrongAnimal( void ) {
-	std::cout << C_R << "WrongAnimal " << getType() << " destructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_R, "[" + getType() + "] destructed.");
 }

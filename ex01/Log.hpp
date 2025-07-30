@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Color.hpp                                          :+:      :+:    :+:   */
+/*   Log.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 12:47:50 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/26 12:48:19 by tiizuka          ###   ########.fr       */
+/*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
+/*   Updated: 2025/07/30 14:40:04 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_HPP
-#define COLOR_HPP
+#ifndef LOG_HPP
+#define LOG_HPP
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <sstream>
+#include <cstdio>
 
 // Font color
 #define C_CLR "\033[0m"
@@ -37,5 +43,25 @@
 // Font style
 #define S_BOLD "\033[1m"	// Bold
 #define S_ULINE "\033[4m"	// Underline
+
+#define F __FILE__
+#define L __LINE__
+
+class Log
+{
+	public:
+
+		static void	a(const char *file, int line, const char *color, std::string s1,
+			std::string s2, std::string s3, std::string s4, std::string s5);	
+		static void	a(const char *file, int line, const char *color, std::string s1,
+			std::string s2, std::string s3, std::string s4);
+		static void	a(const char *file, int line, const char *color, std::string s1,
+			std::string s2, std::string s3);
+		static void	a(const char *file, int line, const char *color, std::string s1,
+			std::string s2);
+		static void	a(const char *file, int line, const char *color, std::string s1);
+		static std::string itoa(int num);
+		static std::string ptoa(void* ptr);
+};
 
 #endif

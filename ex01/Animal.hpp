@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:43:47 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 18:14:13 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 15:00:02 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "Color.hpp"
+#include "Log.hpp"
 
 class Animal
 {

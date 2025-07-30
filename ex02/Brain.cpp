@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 17:29:50 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 06:22:59 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 15:27:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ void Brain::setValue(int index, const std::string value) {
 	if (index < SIZE)
 	{
 		ideas[index] = value;
-		std::cout << C_Y << "Brain set: " << "\"" << ideas[index]
-		<< "\" at " << index << C_CLR << std::endl;
+		Log::a(F, L, C_Y, "setValue", "[" + Log::itoa(index) + "]", "[" + value + "]");
 	}
 }
 
 const std::string Brain::getValue(int index) const {
 	if (index < SIZE)
 	{
-		std::cout << C_Y << "Brain get: " << "\"" << ideas[index]
-		<< "\" at " << index << C_CLR << std::endl;
+		Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + ideas[index] + "]");
 		return ideas[index];
+		
 	}
 	return "";
 }
@@ -35,15 +34,13 @@ Brain::Brain( void ) {
 	for (int i = 0; i < SIZE; ++i) {
 			ideas[i] = "empty";
 	}
-	std::cout << C_B << "Brain constructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "constructed.");
 }
 
 Brain::Brain( const Brain& src ) {
 	for (int i = 0; i<SIZE; ++i)
 		ideas[i] = src.ideas[i];
-	std::cout << C_B << "Brain copied."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "copied.");
 }
 
 Brain& Brain::operator=( const Brain& rhs ) {
@@ -51,13 +48,11 @@ Brain& Brain::operator=( const Brain& rhs ) {
 	{
 		for (int i = 0; i<SIZE; ++i)
 			ideas[i] = rhs.ideas[i];
-		std::cout << C_B << "Brain assignation operator copied."
-			<< C_CLR << std::endl;
+		Log::a(F, L, C_B, "assignation operator copied.");
 	}
 	return *this;
 }
 
 Brain::~Brain( void ) {
-	std::cout << C_R << "Brain destructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_R, "destructed.");
 }

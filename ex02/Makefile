@@ -6,7 +6,7 @@
 #    By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/28 07:49:12 by tiizuka           #+#    #+#              #
-#    Updated: 2025/07/28 16:20:32 by tiizuka          ###   ########.fr        #
+#    Updated: 2025/07/30 15:24:59 by tiizuka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@
 NAME		=	ex02
 
 # Source, object files
-SRCS 		=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp \
-				WrongAnimal.cpp WrongCat.cpp
+SRCS 		=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp Log.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

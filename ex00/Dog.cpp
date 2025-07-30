@@ -6,38 +6,34 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 13:02:49 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 14:52:21 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 void Dog::makeSound( void ) const {
-	std::cout << C_CY << "bark bark." << C_CLR << std::endl;
+	Log::a(F, L, C_Y, "makeSound", "bark bark");
 }
 
 Dog::Dog( void ) : Animal("Dog") {
-	std::cout << C_B << "Dog constructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "[" + type + "] constructed.");
 }
 
 Dog::Dog( const Dog& src ) : Animal(src) {
 	type = src.getType();
-	std::cout << C_B << "Dog " << src.getType() <<  " copied."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 }
 
 Dog& Dog::operator=( const Dog& rhs ) {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
-		std::cout << C_B << "Dog " << rhs.getType()
-			<< " assignation operator copied." << C_CLR << std::endl;
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
 
 Dog::~Dog( void ) {
-	std::cout << C_R << "Dog " << getType() << " destructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_R, "[" + getType() + "] destructed.");
 }

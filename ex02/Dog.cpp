@@ -6,22 +6,24 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 07:28:13 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 15:26:45 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+void Dog::makeSound( void ) const {
+	Log::a(F, L, C_Y, "makeSound", "bark bark");
+}
+
 void Dog::setIdeas(unsigned int index, std::string idea) {
 	_brain->setValue(index, idea);
+	Log::a(F, L, C_Y, "setIdeas", "[" + Log::itoa(index) + "]", "[" + idea + "]");
 }
 
 const std::string Dog::getIdeas(unsigned int index) const {
+	Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + _brain->getValue(index) + "]");
 	return _brain->getValue(index);
-}
-
-void Dog::makeSound( void ) const {
-	std::cout << C_CY << "bark bark." << C_CLR << std::endl;
 }
 
 Dog::Dog( void ) : Animal("Dog") {
@@ -31,15 +33,13 @@ Dog::Dog( void ) : Animal("Dog") {
 		std::cerr << "Error: " << e.what() << std::endl;
 		_brain = NULL;
 	}
-	std::cout << C_B << "Dog constructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "constructed.");
 }
 
 Dog::Dog( const Dog& src ) : Animal(src) {
 	type = src.getType();
 	_brain = new Brain(*src._brain);
-	std::cout << C_B << "Dog " << src.getType() <<  " copied."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 }
 
 Dog& Dog::operator=( const Dog& rhs ) {
@@ -48,8 +48,7 @@ Dog& Dog::operator=( const Dog& rhs ) {
 		Animal::operator=(rhs);
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
-		std::cout << C_B << "Dog " << rhs.getType()
-			<< " assignation operator copied." << C_CLR << std::endl;
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
@@ -57,6 +56,5 @@ Dog& Dog::operator=( const Dog& rhs ) {
 Dog::~Dog( void ) {
 	if (_brain != NULL)
 		delete _brain;
-	std::cout << C_R << "Dog " << getType() << " destructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_R, "[" + getType() + "] destructed.");
 }

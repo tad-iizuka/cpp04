@@ -6,21 +6,23 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/28 07:27:49 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 15:14:22 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 void Cat::makeSound( void ) const {
-	std::cout << C_M << "meow meow." << C_CLR << std::endl;
+	Log::a(F, L, C_Y, "makeSound", "meow meow");
 }
 
 void Cat::setIdeas(unsigned int index, std::string idea) {
 	_brain->setValue(index, idea);
+	Log::a(F, L, C_Y, "setIdeas", "[" + Log::itoa(index) + "]", "[" + idea + "]");
 }
 
 const std::string Cat::getIdeas(unsigned int index) const {
+	Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + _brain->getValue(index) + "]");
 	return _brain->getValue(index);
 }
 
@@ -31,15 +33,13 @@ Cat::Cat( void ) : Animal("Cat") {
 		std::cerr << "Error: " << e.what() << std::endl;
 		_brain = NULL;
 	}
-	std::cout << C_B << "Cat constructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "constructed.");
 }
 
 Cat::Cat( const Cat& src ) : Animal(src) {
 	type = src.getType();
 	_brain = new Brain(*src._brain);
-	std::cout << C_B << "Cat " << src.getType() <<  " copied."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 }
 
 Cat& Cat::operator=( const Cat& rhs ) {
@@ -48,8 +48,7 @@ Cat& Cat::operator=( const Cat& rhs ) {
 		Animal::operator=(rhs);
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
-		std::cout << C_B << "Cat " << rhs.getType()
-			<< " assignation operator copied." << C_CLR << std::endl;
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
@@ -57,6 +56,5 @@ Cat& Cat::operator=( const Cat& rhs ) {
 Cat::~Cat( void ) {
 	if (_brain != NULL)
 		delete _brain;
-	std::cout << C_R << "Cat " << getType() << " destructed."
-		<< C_CLR << std::endl;
+	Log::a(F, L, C_R, "[" + getType() + "] destructed.");
 }
