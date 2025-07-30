@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 17:32:52 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 06:25:59 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Dog& Dog::operator=( const Dog& rhs ) {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
+		type = rhs.getType();
 		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;

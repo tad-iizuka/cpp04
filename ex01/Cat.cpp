@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 17:53:23 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 06:27:40 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ Cat& Cat::operator=( const Cat& rhs ) {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
+		type = rhs.getType();
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
 		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");

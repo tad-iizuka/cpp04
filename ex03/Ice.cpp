@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:38 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 20:50:35 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 06:32:27 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Ice::Ice( void ) : AMateria("ice") {
 }
 
 Ice::Ice( const Ice& src ) : AMateria(src) {
+	_type = src.getType();
 	Log::a(F, L, C_B, "copied.");
 }
 
@@ -38,6 +39,7 @@ Ice& Ice::operator=( const Ice& rhs ) {
 	if (this != &rhs)
 	{
 		AMateria::operator=(rhs);
+		_type = rhs.getType();
 		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;

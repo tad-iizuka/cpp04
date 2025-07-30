@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 20:50:18 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 06:31:34 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Cure::Cure( void ) : AMateria("cure") {
 }
 
 Cure::Cure( const Cure& src ) : AMateria(src) {
+	_type = src.getType();
 	Log::a(F, L, C_B, "copied.");
 }
 
@@ -38,7 +39,8 @@ Cure& Cure::operator=( const Cure& rhs ) {
 	if (this != &rhs)
 	{
 		AMateria::operator=(rhs);
-		// Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
+		_type = rhs.getType();
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
