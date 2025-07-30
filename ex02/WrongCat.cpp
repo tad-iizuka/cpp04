@@ -6,14 +6,14 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:34:27 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 14:57:44 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:31:34 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
 void WrongCat::makeSound( void ) const {
-	Log::a(F, L, C_Y, "makeSound", "wrong meow meow");
+	Log::a(F, L, C_Y, "makeSound", "[" + type + "]", "wrong wrong");
 }
 
 WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
