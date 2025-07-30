@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 17:37:12 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:53:23 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void Dog::makeSound( void ) const {
 	Log::a(F, L, C_Y, "makeSound", "[" + type + "]", "bark bark");
 }
 
-void Dog::setIdeas(unsigned int index, std::string idea) {
+void Dog::setIdea(unsigned int index, std::string idea) {
 	_brain->setValue(index, idea);
-	Log::a(F, L, C_Y, "setIdeas", "[" + Log::itoa(index) + "]", "[" + idea + "]");
+	Log::a(F, L, C_Y, "setIdea", "[" + Log::itoa(index) + "]", "[" + idea + "]");
 }
 
-const std::string Dog::getIdeas(unsigned int index) const {
+const std::string Dog::getIdea(unsigned int index) const {
 	Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + _brain->getValue(index) + "]");
 	return _brain->getValue(index);
 }

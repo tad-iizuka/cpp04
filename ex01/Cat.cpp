@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 17:36:18 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:53:23 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,25 @@ void Cat::makeSound( void ) const {
 	Log::a(F, L, C_Y, "makeSound", "[" + type + "]", "meow meow");
 }
 
-void Cat::setIdeas(unsigned int index, std::string idea) {
-	_brain->setValue(index, idea);
-	Log::a(F, L, C_Y, "setIdeas", "[" + Log::itoa(index) + "]", "[" + idea + "]");
+void Cat::setIdea(unsigned int index, std::string idea) {
+	if (_brain)
+	{
+		_brain->setValue(index, idea);
+		Log::a(F, L, C_Y, "setIdea", "[" + Log::itoa(index) + "]", "[" + idea + "]");
+	}
 }
 
-const std::string Cat::getIdeas(unsigned int index) const {
-	Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + _brain->getValue(index) + "]");
-	return _brain->getValue(index);
+const std::string Cat::getIdea(unsigned int index) const {
+	if (_brain)
+	{
+		Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + _brain->getValue(index) + "]");
+		return _brain->getValue(index);
+	}
+	return "";
 }
 
 Cat::Cat( void ) : Animal("Cat") {
-	try {
-		_brain = new Brain();
-	} catch (std::bad_alloc& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
-		_brain = NULL;
-	}
+	_brain = new Brain();
 	Log::a(F, L, C_B, "constructed.");
 }
 

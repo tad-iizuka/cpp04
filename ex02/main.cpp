@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:38:59 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 15:27:48 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 17:53:23 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@ int main( void )
 	delete m;
 
 	Dog a;
-	a.setIdeas(0, "first");
+	a.setIdea(0, "first");
 	Dog aa(a);
-	aa.getIdeas(0);
-	aa.setIdeas(0, "second");
-	a.getIdeas(0);
-	aa.getIdeas(0);
+	aa.getIdea(0);
+	aa.setIdea(0, "second");
+	a.getIdea(0);
+	aa.getIdea(0);
 
 	Cat b;
-	b.setIdeas(99, "first");
+	b.setIdea(99, "first");
 	Cat bb(b);
-	bb.getIdeas(99);
-	bb.setIdeas(99, "second");
-	b.getIdeas(99);
-	bb.getIdeas(99);
+	bb.getIdea(99);
+	bb.setIdea(99, "second");
+	b.getIdea(99);
+	bb.getIdea(99);
 
 	Log::a(F, L, C_W, "return (EXIT_SUCCESS);");
 	return (EXIT_SUCCESS);
