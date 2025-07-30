@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:38 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 14:38:23 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 20:50:35 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ std::string const & Ice::getType() const {
 }
 
 Ice* Ice::clone() const {
-	Ice	*ice = new Ice();
-	Log::a(F, L, C_G,"[" + Log::ptoa(ice) + "] cloned.");
-	return ice;
+	Log::a(F, L, C_G,"cloned.");
+	return new Ice(*this);
 }
 
 Ice::Ice( void ) : AMateria("ice") {

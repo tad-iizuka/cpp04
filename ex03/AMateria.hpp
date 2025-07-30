@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 07:59:27 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 14:39:45 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 20:48:52 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class AMateria
 
 	protected:
 
-		const std::string	_type;
+		std::string	_type;
 
 };
 

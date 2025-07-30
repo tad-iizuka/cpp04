@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 14:38:23 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 20:50:18 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ std::string const & Cure::getType() const {
 }
 
 Cure* Cure::clone() const {
-	Cure	*cure = new Cure;
-	Log::a(F, L, C_G,"[" + Log::ptoa(cure) + "] cloned.");
-	return cure;
+	Log::a(F, L, C_G,"cloned.");
+	return new Cure(*this);
 }
 
 Cure::Cure( void ) : AMateria("cure") {
@@ -39,7 +38,7 @@ Cure& Cure::operator=( const Cure& rhs ) {
 	if (this != &rhs)
 	{
 		AMateria::operator=(rhs);
-		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
+		// Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
