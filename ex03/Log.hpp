@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 21:07:13 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/29 22:16:14 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 12:17:29 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <cstdio>
 #include "Color.hpp"
 
 #define F __FILE__
@@ -36,6 +37,7 @@ class Log
 			std::string s2);
 		static void	a(const char *file, int line, const char *color, std::string s1);
 		static std::string itoa(int num);
+		static std::string ptoa(void* ptr);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:52:10 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 07:49:06 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 11:47:31 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ void Character::equip(AMateria* m) {
 			_inv[i] = m;
 			return;
 		}
+		else if (_inv[i] == m)
+		{
+			Log::a(__FILE__, __LINE__, C_R, "equip", "[" + _name + "]", "already equiped.");
+			return;
+		}
 	}
 	Log::a(__FILE__, __LINE__, C_R, "equip", "[" + _name + "]", "no space to equip.");
 }
+
 void Character::unequip(int idx) {
 	Log::a(__FILE__, __LINE__, C_G, "unequip", "[" + Log::itoa(idx) + "]");
 	if (idx >= 0 && idx < NUM_SLOT && _inv[idx] != NULL)
@@ -46,7 +52,11 @@ void Character::unequip(int idx) {
 			if (_inv_unequip[i] == NULL)
 			{
 				_inv_unequip[i] = _inv[idx];
-				_inv[idx] = NULL;
+				for (int i = idx; i < NUM_SLOT - 1; ++i)
+				{
+					_inv[i] = _inv[i + 1];
+				}
+				_inv[NUM_SLOT - 1] = NULL;
 				return;
 			}
 		}

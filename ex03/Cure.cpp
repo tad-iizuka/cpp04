@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 08:27:14 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 08:19:21 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/30 12:18:44 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ std::string const & Cure::getType() const {
 
 Cure* Cure::clone() const {
 	Cure	*cure = new Cure;
-	Log::a(__FILE__, __LINE__, C_G, "cloned.");
-	std::cout << C_G << cure << C_CLR << std::endl;
+	Log::a(__FILE__, __LINE__, C_G,"[" + Log::ptoa(cure) + "] cloned.");
 	return cure;
 }
 
