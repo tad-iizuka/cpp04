@@ -34,24 +34,24 @@ const std::string Dog::getIdea(unsigned int index) const {
 }
 
 Dog::Dog( void ) : Animal("Dog") {
-	_brain = new Brain();
 	Log::a(F, L, C_B, "constructed.");
+	_brain = new Brain();
 }
 
 Dog::Dog( const Dog& src ) : Animal(src) {
+	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 	type = src.getType();
 	_brain = new Brain(*src._brain);
-	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 }
 
 Dog& Dog::operator=( const Dog& rhs ) {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 		type = rhs.getType();
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
-		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
