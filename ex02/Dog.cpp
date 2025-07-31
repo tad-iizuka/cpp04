@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:28 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/31 12:24:22 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 21:29:00 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,24 @@ const std::string Dog::getIdea(unsigned int index) const {
 }
 
 Dog::Dog( void ) : Animal("Dog") {
-	_brain = new Brain();
 	Log::a(F, L, C_B, "constructed.");
+	_brain = new Brain();
 }
 
 Dog::Dog( const Dog& src ) : Animal(src) {
+	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 	type = src.getType();
 	_brain = new Brain(*src._brain);
-	Log::a(F, L, C_B, "[" + src.getType() + "] copied.");
 }
 
 Dog& Dog::operator=( const Dog& rhs ) {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
+		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 		type = rhs.getType();
 		delete _brain;
 		_brain = new Brain(*rhs._brain);
-		Log::a(F, L, C_B, "[" + rhs.getType() + "] assignation operator copied.");
 	}
 	return *this;
 }
