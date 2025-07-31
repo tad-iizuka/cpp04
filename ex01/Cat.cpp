@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 04:07:02 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/31 06:27:40 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 12:12:10 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void Cat::makeSound( void ) const {
 void Cat::setIdea(unsigned int index, std::string idea) {
 	if (_brain)
 	{
-		_brain->setValue(index, idea);
 		Log::a(F, L, C_Y, "setIdea", "[" + Log::itoa(index) + "]", "[" + idea + "]");
+		_brain->setValue(index, idea);
 	}
 }
 
 const std::string Cat::getIdea(unsigned int index) const {
 	if (_brain)
 	{
-		Log::a(F, L, C_Y, "getValue", "[" + Log::itoa(index) + "]", "[" + _brain->getValue(index) + "]");
+		Log::a(F, L, C_Y, "getIdea", "[" + Log::itoa(index) + "]");
 		return _brain->getValue(index);
 	}
 	return "";
