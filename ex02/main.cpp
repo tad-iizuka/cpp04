@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:38:59 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/30 17:53:23 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/07/31 12:28:38 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int main( void )
 
 	Cat b;
 	b.setIdea(99, "first");
-	Cat bb(b);
+	Cat bb;
+	bb = b;
 	bb.getIdea(99);
 	bb.setIdea(99, "second");
 	b.getIdea(99);
