@@ -17,34 +17,53 @@
 #include "WrongCat.hpp"
 #include <cstdlib>
 
+#define NUM 10
+
 int main( void )
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const Dog* n = new Dog();
-	const Cat* m = new Cat();
+	{
+		Log::a(F, L, C_W, "--- Code of the subject");
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		const Dog* n = new Dog();
+		const Cat* m = new Cat();
 
-	delete j;
-	delete i;
-	delete n;
-	delete m;
+		delete j;
+		delete i;
+		delete n;
+		delete m;
+	}
+	{
+		Animal* animals[NUM];
 
-	Dog a;
-	a.setIdea(0, "first");
-	Dog aa(a);
-	aa.getIdea(0);
-	aa.setIdea(0, "second");
-	a.getIdea(0);
-	aa.getIdea(0);
+		for (int i=0;i<NUM;++i)
+		{
+			if (i % 2 == 0)
+				animals[i] = new Dog();
+			else
+				animals[i] = new Cat();
+			animals[i]->makeSound();
+		}
+		for (int i=0;i<NUM;++i)
+			delete animals[i];
+	}
+	{
+		Dog a;
+		a.setIdea(0, "a");
+		Dog aa(a);
+		aa.getIdea(0);
+		aa.setIdea(0, "aa");
+		a.getIdea(0);
+		aa.getIdea(0);
 
-	Cat b;
-	b.setIdea(99, "first");
-	Cat bb(b);
-	bb.getIdea(99);
-	bb.setIdea(99, "second");
-	b.getIdea(99);
-	bb.getIdea(99);
-
+		Cat b;
+		b.setIdea(99, "b");
+		Cat bb(b);
+		bb.getIdea(99);
+		bb.setIdea(99, "bb");
+		b.getIdea(99);
+		bb.getIdea(99);
+	}
 	Log::a(F, L, C_W, "return (EXIT_SUCCESS);");
 	return (EXIT_SUCCESS);
 }
