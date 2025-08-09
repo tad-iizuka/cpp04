@@ -6,7 +6,7 @@
 /*   By: tiizuka <tiizuka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 03:38:59 by tiizuka           #+#    #+#             */
-/*   Updated: 2025/07/27 13:14:28 by tiizuka          ###   ########.fr       */
+/*   Updated: 2025/08/09 10:47:34 by tiizuka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,15 @@ int main( void )
 	{
 		const WrongAnimal* meta = new WrongAnimal();
 		const WrongAnimal* i = new WrongCat();
+		const WrongCat* j = new WrongCat();
 
+		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
 		i->makeSound();
+		j->makeSound();
 		meta->makeSound();
 		delete meta;
+		delete j;
 		delete i;
 	}
 	return (EXIT_SUCCESS);
